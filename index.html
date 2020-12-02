@@ -1,0 +1,35 @@
+<html>
+<script>
+    fetch("https://api.randomuser.me/?nat=US&results=1")
+        .then(res => res.json())
+        .then(json => json.results[0])
+        .then(result => result.email)
+        .then(console.log)
+
+    async function getFakePerson() {
+        try {
+            let res = await fetch("https://api.randomuser.me/?nat=US&results=1");
+            let { results } = await res.json();
+            console.log(results);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    getFakePerson();
+
+    let vcard = {
+        name: "Karol",
+        surname: "Kalinski"
+    }
+
+    let surnameNew = "Nowy"
+    newVCard = {...vcard, surname : surnameNew}
+    let { name } = vcard;
+
+    console.log(name)
+
+    console.log(newVCard)
+</script>
+
+</html>
